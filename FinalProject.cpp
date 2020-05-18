@@ -216,7 +216,6 @@ int main(int argc, char **argv){
     float kAvg[OVERALL_K];
     int bestK = 0;
     float _2017Acc = 0;
-
     for (int i = 1; i < OVERALL_K; i+= 2) {
       K = i;
       //this is for each fold
@@ -226,16 +225,12 @@ int main(int argc, char **argv){
         accuracy(foldAcc, j);
       }
       kAvg[K] = averageFold(foldAcc);
-
     }
-
     bestK = bestKValue(kAvg);
     cout << bestK;
     distanceCalcTesting(bestK);
-
     _2017Acc = accuracyOfTesting();
-
+    
     cout << "our prediction Accuracy for the year of 2017 is: " << _2017Acc;
-
     return 0;
   }
